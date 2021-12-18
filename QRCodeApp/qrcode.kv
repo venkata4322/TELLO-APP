@@ -1,0 +1,161 @@
+#:kivy 1.4
+
+<Event>:
+    FloatLayout:
+        size: 300, 300
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: 510, 300
+                size: 250, 250
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: 490, 280
+                size: 10, 280
+        canvas.after:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: 10, 280
+                size: 780, 10
+        Image:
+            id: qrImage
+            size_hint_y: None
+            size_hint_x: None
+            width: 250
+            height: 250
+            pos: 510, 300
+        TextInput:
+            id: inputText
+            size_hint: .48, .1
+            pos: 180, 500
+            write_tab: False
+            multiline: False
+        Button:
+            text: "Generate"
+            size_hint: .48, .1
+            pos: 325, 499
+            on_press: root.generate()
+        Label:
+            id: changeText
+            font_size: 15
+            pos: -60, 365
+        Label:
+            id: explainText
+            font_size: 20
+            pos: 100, 290
+        Label:
+            id: error
+            color: 1, 0, 0, 1
+            font_size: 15
+            pos: 100, 180
+        Label:
+            text: "QRCode Generator for Tello edu"
+            font_size: 40
+            pos: 240, 430
+        Label:
+            text: "Select Command:"
+            font_size: 20
+            pos: 240, 115
+        Button:
+            text: "Move Forward"
+            size_hint: .48, .2
+            pos: 40, 10
+            on_press: root.setChangeText("Move Forward", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Move Backward"
+            size_hint: .48, .2
+            pos: 40, 70
+            on_press: root.setChangeText("Move Backward", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Move Left"
+            size_hint: .48, .2
+            pos: 40, 130
+            on_press: root.setChangeText("Move Left", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Move Right"
+            size_hint: .48, .2
+            pos: 40, 190
+            on_press: root.setChangeText("Move Right", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Move Up"
+            size_hint: .48, .2
+            pos: 184, 10
+            on_press: root.setChangeText("Move Up", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Move Down"
+            size_hint: .48, .2
+            pos: 184, 70
+            on_press: root.setChangeText("Move Down", "Enter the distance you want to cover in cm")
+        Button:
+            text: "Rotate Clockwise"
+            size_hint: .48, .2
+            pos: 184, 130
+            on_press: root.setChangeText("Rotate Clockwise", "Write the desired degree of rotation")
+        Button:
+            text: "Rotate Counter Clockwise"
+            font_size: 10
+            size_hint: .48, .2
+            pos: 184, 190
+            on_press: root.setChangeText("Rotate Counter Clockwise", "Write the desired degree of rotation")
+        Button:
+            text: "Land"
+            size_hint: .48, .2
+            pos: 328, 10
+            on_press: root.setChangeText("Land", "You don't need to write anything. Just generate !")
+        Button:
+            text: "TakeOff"
+            size_hint: .48, .2
+            pos: 328, 70
+            on_press: root.setChangeText("TakeOff", "You don't need to write anything. Just generate !")
+        Button:
+            text: "Flip"
+            size_hint: .48, .2
+            pos: 328, 130
+            on_press: root.setChangeText("Flip", "You need to write the direction\n (ex: l = left, r = right, f = forward, b = back)")
+        Button:
+            text: "FaceTracking"
+            size_hint: .48, .2
+            pos: 328, 190
+            on_press: root.setChangeText("FaceTracking", "You don't need to write anything. Just generate !")
+        Button:
+            text: "QRcode Tracking"
+            size_hint: .48, .2
+            pos: 472, 10
+            on_press: root.setChangeText("QRcode Tracking", "You don't need to write anything. Just generate !")
+        Button:
+            text: "QRCode Action"
+            size_hint: .48, .2
+            pos: 472, 70
+            on_press: root.setChangeText("QRCode Action", "You don't need to write anything. Just generate !")
+        Button:
+            text: "Circle Mod"
+            size_hint: .48, .2
+            pos: 472, 130
+            on_press: root.setChangeText("Circle Mod", "write in firt the radius(minimum 50cm),\n in second the direction (avant ou arriere),\n in third rotation (cw, ccw) and\n in the fourth tilt (from -90 to 90)\n ex: 50 avant cw 50 ")
+        Button:
+            text: "360 Mod"
+            size_hint: .48, .2
+            pos: 472, 190
+            on_press: root.setChangeText("360 Mod", "You don't need to write anything. Just generate !")
+        Button:
+            text: "Rebound Mod"
+            size_hint: .48, .2
+            pos: 616, 10
+            on_press: root.setChangeText("Rebound Mod", "You don't need to write anything. Just generate !")
+        Button:
+            text: "big Angle"
+            size_hint: .48, .2
+            pos: 616, 70
+            on_press: root.setChangeText("big Angle", "You don't need to write anything. Just generate !")
+        Button:
+            text: "Coming Soon"
+            size_hint: .48, .2
+            pos: 616, 130
+        Button:
+            text: "Coming Soon"
+            size_hint: .48, .2
+            pos: 616, 190
